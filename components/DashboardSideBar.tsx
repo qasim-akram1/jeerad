@@ -1,7 +1,6 @@
 
 import React from 'react'
 import Image from 'next/image'
-import logo from '../components/Black And White Aesthetic Minimalist Modern Simple Typography Coconut Cosmetics Logo.png';
 
 
 const OverviewIcon = () => {
@@ -163,13 +162,7 @@ const DashboardSideBar = () => {
     <>
         <nav className="nav-hb9 nav-xoi nav-oq6 theme--d2l style-afcPf" id="style-afcPf">
             <div className="content-v6b">
-            <div className="d-7ft align-spi style-bKSOr" id="style-bKSOr">
-            <Image 
-                alt="Coconut Cosmetics Logo" 
-                src={logo} 
-                className="sidebar-2lp" 
-            />
-        </div>
+                <div className="d-7ft align-spi style-bKSOr" id="style-bKSOr"><Image alt='logo' width={50} height={50} src="https://app.loopcv.pro/img/logos/loopcv.svg" className="sidebar-2lp" /></div>
                 <div className="list-2o8 v-3od theme--d2l list-wtp">
                     <div className="pa-93y item-2i2 theme--d2l item-oik text-tyr"><a href="/dashboard" className="item-hnt item-lc8 item-rmm item-n2d theme--d2l sidebar-43n">
                             <div className="item-5c7" >

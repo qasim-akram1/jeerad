@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import type { JSX } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ButtonSignin from "./ButtonSignin";
-import logo from "./Black And White Aesthetic Minimalist Modern Simple Typography Coconut Cosmetics Logo (1).png";
+import logo from "@/app/icon.png";
 import config from "@/config";
 
 const links: {
@@ -29,46 +29,49 @@ const links: {
 
 const cta: JSX.Element = <ButtonSignin extraStyle="btn-primary" />;
 
-// A header with a logo on the left, links in the center (like Pricing, etc...), and a CTA (like Get Started or Login) on the right.
-// The header is responsive, and on mobile, the links are hidden behind a burger button.
-const Header = () => {
+const HeaderContent = () => {
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  // setIsOpen(false) when the route changes (i.e: when the user clicks on a link on mobile)
   useEffect(() => {
     setIsOpen(false);
   }, [searchParams]);
 
   return (
-    <header className="bg-base-200" style={{ background: '#2b3440' }}>
+    <header className="bg-base-200">
       <nav
         className="container flex items-center justify-between px-8 py-4 mx-auto"
         aria-label="Global"
       >
         {/* Your logo/name on large screens */}
-        <div className="flex lg:flex-1" style={{color:"white !important"}}>
+        <div className="flex lg:flex-1">
           <Link
-            className="flex items-center gap-2 shrink-0"
+            className="flex items-center gap-2 shrink-0 "
             href="/"
-            title="Homepage"
+            title={`${config.appName} homepage`}
           >
-            <Image
+            {/* <Image
               src={logo}
-              alt="Coconut Cosmetics Logo"
-               // You can adjust the width class here
-              placeholder="blur" // Shows a blurred version of the image while loading
-              priority={true} // Loads the image with higher priority
-              width={100} // Set the appropriate width
-              height={100} // Set the appropriate height
+              alt={`${config.appName} logo`}
+              className="w-8"
+              placeholder="blur"
+              priority={true}
+              width={32}
+              height={32}
+            /> */}
+             <img
+              src="https://accessai.asg.today/uploads/system/29eaedf7193718f69931e38f593c37fd.png"
+              alt={`${config.appName} logo`}
+              // className="w-8 h-8"
+              width={52}
+              height={52}
             />
-        
-
-            {/* <span className="font-extrabold text-lg">{config.appName}</span> */}
+            
+            <span className="font-extrabold text-lg">{config.appName}</span>
           </Link>
         </div>
         {/* Burger button to open menu on mobile */}
-        <div className="flex lg:hidden" style={{color:"white !important"}}>
+        <div className="flex lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
@@ -93,7 +96,7 @@ const Header = () => {
         </div>
 
         {/* Your links on large screens */}
-        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center" style={{color:"white !important"}}>
+        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
           {links.map((link) => (
             <Link
               href={link.href}
@@ -122,7 +125,7 @@ const Header = () => {
               title={`${config.appName} homepage`}
               href="/"
             >
-              <Image
+              {/* <Image
                 src={logo}
                 alt={`${config.appName} logo`}
                 className="w-8"
@@ -130,7 +133,14 @@ const Header = () => {
                 priority={true}
                 width={32}
                 height={32}
-              />
+              /> */}
+               <img
+              src="https://accessai.asg.today/uploads/system/29eaedf7193718f69931e38f593c37fd.png"
+              alt={`${config.appName} logo`}
+              className="w-8 h-8"
+              width={72}
+              height={72}
+            />
               <span className="font-extrabold text-lg">{config.appName}</span>
             </Link>
             <button
@@ -179,6 +189,15 @@ const Header = () => {
         </div>
       </div>
     </header>
+  );
+};
+
+// Wrapping the HeaderContent with Suspense
+const Header = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HeaderContent />
+    </Suspense>
   );
 };
 

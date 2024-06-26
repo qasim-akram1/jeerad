@@ -90,7 +90,7 @@ const AllMatchesHeader = () => {
               <ProfileIcon />
             </span>
             <span data-v-16581f12="" className="pl-z44">
-              Qasim Akram
+              Huzaifa Iftikhar
             </span>
           </span>
         </button>
