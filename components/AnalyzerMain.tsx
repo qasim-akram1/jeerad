@@ -23,10 +23,10 @@ const AnalyzerMain = () => {
         <div style={{backgroundColor: 'white', margin: 40}}>
             <div className="row-5mo">
                 <div className="col-65b">
-                    <div> <b> Upload your CV (résumé)</b> </div>
+                    <div> <b> Upload your CV (resume)</b> </div>
                     <div className="noC-nw6"> {selectedFile ? selectedFile.name : 'NO CVS UPLOADED YET'} </div>
 
-                    <p className="text-3aq">To get the most out of our platform, uploading your CV is important. Here's why:<br/> </p>
+                    <p className="text-3aq">To get the most out of our platform, uploading your CV is important. Here why:<br/> </p>
                     <ul>
                         <li><b>Automate your applications</b> by having your CV automatically attached to emails sent to companies.</li>
                         <li><b>Apply directly</b> to online forms effortlessly.</li>
